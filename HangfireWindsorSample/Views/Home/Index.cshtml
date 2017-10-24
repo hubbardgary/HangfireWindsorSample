@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h2>Hangfire examples</h2>
+    <p class="lead">Examples of various Hangfire jobs using Castle Windsor for dependency injection.</p>
+</div>
+
+@using (Html.BeginForm("PerformHangfireAction", "Home", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Fire-and-forget Job</h3>
+            <p>
+                Enqueue a standard background job.
+            </p>
+            <p><input class="btn btn-primary" type="submit" name="action" value="EnqueueBackgroundJob"/>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h3>Delayed Job</h3>
+            <p>
+                Enqueue a background job that will fire in 30 seconds.
+            </p>
+            <p>
+                <input class="btn btn-primary" type="submit" name="action" value="EnqueueDelayedJob" />
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h3>Recurring Job</h3>
+            <p>
+                Enqueue a background job that fires every minute.
+            </p>
+            <p>
+                <input class="btn btn-primary" type="submit" name="action" value="EnqueueRecurringBackgroundJob" />
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h3>GET Request OK</h3>
+            <p>
+                Call an API using the GET verb that returns a success result.
+            </p>
+            <p>
+                <input class="btn btn-primary" type="submit" name="action" value="GetApiSuccess" />
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h3>GET Request Fail</h3>
+            <p>
+                Call an API using the GET verb that throws an exception.
+            </p>
+            <p>
+                <input class="btn btn-primary" type="submit" name="action" value="GetApiFailure" />
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h3>POST Request OK</h3>
+            <p>
+                Call an API using the POST verb that returns a success result.
+            </p>
+            <p><input class="btn btn-primary" type="submit" name="action" value="PostApiSuccess"/>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h3>POST Request Fail</h3>
+            <p>
+                Call an API using the POST verb that throws an exception.
+            </p>
+            <p>
+                <input class="btn btn-primary" type="submit" name="action" value="PostApiFailure" />
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h3>Unreliable job</h3>
+            <p>
+                Call a method that only succeeds 20% of the time.
+            </p>
+            <p>
+                <input class="btn btn-primary" type="submit" name="action" value="UnreliableJob" />
+            </p>
+        </div>
+    </div>
+}
